@@ -1,61 +1,106 @@
 "use client";
 
-import { Typography, Button } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import {
   ChartBarIcon,
   PuzzlePieceIcon,
   CursorArrowRaysIcon,
-  ArrowRightIcon,
 } from "@heroicons/react/24/solid";
 import { ResumeItem } from "@/components";
 
-const RESUME_ITEMS = [
-  {
-    icon: ChartBarIcon,
-    children: "Bachelor of Science in Computer Science",
-  },
-  {
-    icon: PuzzlePieceIcon,
-    children: "Certified Web Developer ",
-  },
-  {
-    icon: CursorArrowRaysIcon,
-    children: "Frontend Framework Proficiency Certification",
-  },
-];
+interface ResumeProps {
+  lang: "de" | "pl";
+}
 
-export function Resume() {
+const TEXTS = {
+  de: {
+    heading: "Maria Elisabeth Froitzheim",
+    lead: (
+        <>
+          Geboren und aufgewachsen im oberschlesischen Ratibor. Als Kind bilingual
+          erzogen. Nach dem Abitur begann die Berufstätigkeit im Verband der
+          Schulen. Mit Abschluss einer sozialpsychologischen Zusatzausbildung
+          folgte die Tätigkeit als Therapeutin in einem Resozialisationszentrum
+          in Tschenstochau.
+        </>
+    ),
+    items: [
+      {
+        icon: ChartBarIcon,
+        title: "Kaufmännische Ausbildung",
+        children:
+            "In Deutschland kaufmännische Ausbildung und mehrjährige Tätigkeit in einem weltweit agierenden Großkonzern.",
+      },
+      {
+        icon: PuzzlePieceIcon,
+        title: "Übersetzerin & Dolmetscherin",
+        children:
+            "Nach erfolgreicher Prüfung zur staatlich anerkannten Übersetzerin und Beeidigung als Dolmetscherin freiberuflich tätig.",
+      },
+      {
+        icon: CursorArrowRaysIcon,
+        title: "Zusammenarbeit & Projekte",
+        children:
+            "Berufserfahrung mit freier Wirtschaft, diversen Behörden und öffentlichen Einrichtungen; Mitarbeit in öffentlichem Forschungsprojekt; Veröffentlichung übersetzter Texte.",
+      },
+    ],
+  },
+  pl: {
+    heading: "Maria Elisabeth Froitzheim",
+    lead: (
+        <>
+          Urodzona i wychowana w śląskim Raciborzu. Jako dziecko wychowana
+          dwujęzycznie. Po maturze rozpoczęła pracę w stowarzyszeniu szkół. Po
+          ukończeniu dodatkowego kształcenia z zakresu psychologii społecznej
+          pracowała jako terapeutka w resocjalizacyjnym ośrodku w Częstochowie.
+        </>
+    ),
+    items: [
+      {
+        icon: ChartBarIcon,
+        title: "Kształcenie handlowe",
+        children:
+            "W Niemczech odbyła szkolenie handlowe i przez kilka lat pracowała w światowym koncernie.",
+      },
+      {
+        icon: PuzzlePieceIcon,
+        title: "Tłumacz przysięgły & tłumacz",
+        children:
+            "Po zdaniu egzaminu na tłumacza przysięgłego i złożeniu ślubowania pracuje jako freelancer.",
+      },
+      {
+        icon: CursorArrowRaysIcon,
+        title: "Współpraca & projekty",
+        children:
+            "Doświadczenie we współpracy z sektorem prywatnym, władzami i instytucjami publicznymi; udział w projekcie badawczym; publikacje przetłumaczonych tekstów.",
+      },
+    ],
+  },
+};
+
+export function Resume({ lang }: ResumeProps) {
+  const { heading, lead, items } = TEXTS[lang];
+
   return (
-    <section className="px-8 py-24">
-      <div className="container mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2">
-        <div className="col-span-1">
-          <Typography variant="h2" color="blue-gray">
-            My Resume
-          </Typography>
-          <Typography className="mb-4 mt-3 w-9/12 font-normal !text-gray-500">
-            Highly skilled and creative Web Developer with 5+ years of
-            experience in crafting visually stunning and functionally robust
-            websites and web applications.
-          </Typography>
-          <Button
-            variant="text"
-            color="gray"
-            className="flex items-center gap-2"
-          >
-            view more
-            <ArrowRightIcon
-              strokeWidth={3}
-              className="h-3.5 w-3.5 text-gray-900"
-            />
-          </Button>
+      <section className="px-8 py-24">
+        <div className="container mx-auto grid w-full grid-cols-1 items-start gap-16 lg:grid-cols-2">
+          <div>
+            <Typography variant="h2" color="blue-gray">
+              {heading}
+            </Typography>
+            <Typography className="mb-6 mt-3 w-full font-normal !text-gray-500">
+              {lead}
+            </Typography>
+          </div>
+          <div className="grid gap-y-6 lg:ml-auto pr-0 lg:pr-12 xl:pr-32">
+            {items.map(({ icon, title, children }, idx) => (
+                <ResumeItem key={idx} icon={icon} title={title}>
+                  {children}
+                </ResumeItem>
+            ))}
+          </div>
         </div>
-        <div className="col-span-1 grid gap-y-6 lg:ml-auto pr-0 lg:pr-12 xl:pr-32">
-          {RESUME_ITEMS.map((props, idx) => (
-            <ResumeItem key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
+      </section>
   );
 }
 

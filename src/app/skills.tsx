@@ -2,80 +2,167 @@
 
 import { Typography } from "@material-tailwind/react";
 import {
-  RectangleGroupIcon,
-  FingerPrintIcon,
-  SwatchIcon,
-  HashtagIcon,
-  EyeIcon,
-  DocumentTextIcon,
+    DocumentTextIcon,
+    LanguageIcon,
+    MicrophoneIcon,
+    GlobeAltIcon,
 } from "@heroicons/react/24/solid";
 import { SkillCard } from "@/components";
 
-const SKILLS = [
-  {
-    icon: RectangleGroupIcon,
-    title: "Frontend Web Development:",
-    children:
-      "Creating beautiful and functional web experiences is my forte. Using the latest technologies and best practices, I design and build websites that captivate and engage users.",
-  },
-  {
-    icon: FingerPrintIcon,
-    title: "Mobile App Development",
-    children:
-      " I specialize in creating responsive and intuitive mobile apps that work seamlessly across iOS & Android devices. From concept to deployment, I handle every stage of the development process.",
-  },
-  {
-    icon: SwatchIcon,
-    title: "Technology Stack",
-    children:
-      "I'm well-versed in the industry's most popular frontend technologies, including HTML5, CSS3, JavaScript, and frameworks like React and React Native.",
-  },
-  {
-    icon: HashtagIcon,
-    title: " Web Optimization",
-    children:
-      "Performance matters. I optimize websites and apps for speed, ensuring your users enjoy a fast and responsive experience, which in turn boosts user satisfaction and SEO rankings.",
-  },
-  {
-    icon: EyeIcon,
-    title: "User-Centric Design",
-    children:
-      "My development goes hand-in-hand with an eye for design. I create user interfaces that are not only functional but also aesthetically pleasing, providing a seamless and enjoyable user journey.",
-  },
-  {
-    icon: DocumentTextIcon,
-    title: "Testing and Quality Assurance",
-    children:
-      "I rigorously test and debug applications to guarantee a bug-free and secure environment for users. Your peace of mind is as important to me as the functionality of your project.",
-  },
-];
+interface SkillsProps {
+    lang: "de" | "pl";
+}
 
-export function Skills() {
-  return (
-    <section className="px-8">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography color="blue-gray" className="mb-2 font-bold uppercase">
-          my skills
-        </Typography>
-        <Typography variant="h1" color="blue-gray" className="mb-4">
-          What I do
-        </Typography>
-        <Typography
-          variant="lead"
-          className="mx-auto w-full !text-gray-500 lg:w-10/12"
-        >
-          I&apos;m not just a developer; I&apos;m a digital dreamweaver.
-          Crafting immersive online experiences is not just a job but my
-          calling. Discover below how I can help you.
-        </Typography>
-      </div>
-      <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-        {SKILLS.map((props, idx) => (
-          <SkillCard key={idx} {...props} />
-        ))}
-      </div>
-    </section>
-  );
+const TEXTS = {
+    de: {
+        label: "meine leistungen",
+        title: "Das biete ich",
+        lead:
+            "Als erfahrene Dolmetscherin für Deutsch-Polnisch stehe ich Ihnen mit maßgeschneiderten Sprachdienstleistungen zur Seite – professionell, zuverlässig und leidenschaftlich.",
+        skills: [
+            {
+                icon: DocumentTextIcon,
+                title: "Übersetzen",
+                children: (
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Verträge</li>
+                        <li>Dokumente</li>
+                        <li>Gutachten</li>
+                        <li>Urkunden</li>
+                        <li>Patente</li>
+                        <li>Schriftverkehr</li>
+                    </ul>
+                ),
+            },
+            {
+                icon: LanguageIcon,
+                title: "Dolmetschen",
+                children: (
+                    <>
+                        <p className="font-medium">Simultan und konsekutiv</p>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>bei Polizei, Gericht, Behörde</li>
+                            <li>während Vertragsverhandlungen</li>
+                            <li>auf Geschäftsterminen</li>
+                        </ul>
+                    </>
+                ),
+            },
+            {
+                icon: MicrophoneIcon,
+                title: "Begleiten",
+                children: (
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>auf Tagungen</li>
+                        <li>zu Geschäftsterminen</li>
+                        <li>zu Vorträgen</li>
+                        <li>immer dann, wenn Erfolg auch von einer guten Verständigung abhängt</li>
+                    </ul>
+                ),
+            },
+            {
+                icon: GlobeAltIcon,
+                title: "Interkulturelles Training",
+                children: (
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Wirtschaft</li>
+                        <li>Schule</li>
+                        <li>öffentliche Einrichtungen</li>
+                        <li>überall dort, wo Sprache verbindet</li>
+                    </ul>
+                ),
+            },
+        ],
+    },
+    pl: {
+        label: "moje usługi",
+        title: "Co oferuję",
+        lead:
+            "Jako doświadczona tłumaczka języka niemiecko-polskiego oferuję Państwu usługi językowe szyte na miarę – profesjonalnie, rzetelnie i z pasją.",
+        skills: [
+            {
+                icon: DocumentTextIcon,
+                title: "Tłumaczenia",
+                children: (
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Umowy</li>
+                        <li>Dokumenty</li>
+                        <li>Ekspertyzy</li>
+                        <li>Dokumenty urzędowe</li>
+                        <li>Patenty</li>
+                        <li>Korespondencja</li>
+                    </ul>
+                ),
+            },
+            {
+                icon: LanguageIcon,
+                title: "Tłumaczenia ustne",
+                children: (
+                    <>
+                        <p className="font-medium">Symultaniczne i konsekutywne</p>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>przy policji, sądzie, urzędzie</li>
+                            <li>podczas negocjacji umów</li>
+                            <li>na spotkaniach biznesowych</li>
+                        </ul>
+                    </>
+                ),
+            },
+            {
+                icon: MicrophoneIcon,
+                title: "Tłumaczenie wspierające",
+                children: (
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>na konferencjach</li>
+                        <li>na spotkaniach biznesowych</li>
+                        <li>na wykładach</li>
+                        <li>zawsze gdy sukces zależy od dobrej komunikacji</li>
+                    </ul>
+                ),
+            },
+            {
+                icon: GlobeAltIcon,
+                title: "Szkolenia międzykulturowe",
+                children: (
+                    <ul className="list-disc list-inside space-y-1">
+                        <li>Biznes</li>
+                        <li>Szkoła</li>
+                        <li>instytucji publicznych</li>
+                        <li>wszędzie tam, gdzie łączy język</li>
+                    </ul>
+                ),
+            },
+        ],
+    },
+};
+
+export function Skills({ lang }: SkillsProps) {
+    const { label, title, lead, skills } = TEXTS[lang];
+
+    return (
+        <section className="px-8">
+            <div className="container mx-auto mb-20 text-center">
+                <Typography variant="h1" color="blue-gray" className="mb-4">
+                    {title}
+                </Typography>
+                <Typography
+                    variant="lead"
+                    className="mx-auto w-full !text-gray-500 lg:w-10/12"
+                >
+                    {lead}
+                </Typography>
+            </div>
+            <div className="container mx-auto grid gap-8 grid-cols-1 md:grid-cols-2">
+                {skills.map(({ icon, title, children }, idx) => (
+                    <div key={idx} className="h-full">
+                        <SkillCard icon={icon} title={title}>
+                            {children}
+                        </SkillCard>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
 }
 
 export default Skills;

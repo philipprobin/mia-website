@@ -26,7 +26,7 @@ export default function RootLayout({
       <head>
         <script
           defer
-          data-site="YOUR_DOMAIN_HERE"
+          data-site="www.mia-froitzheim.de"
           src="https://api.nepcha.com/js/nepcha-analytics.js"
         ></script>
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
@@ -34,7 +34,6 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Layout>
           {children}
-          <FixedPlugin />
         </Layout>
       </body>
     </html>
