@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
-
+    devIndicators: false,
     // …any other Next.js config options you already had
 };
 
