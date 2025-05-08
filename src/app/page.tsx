@@ -16,7 +16,7 @@ export default function Portfolio() {
         <>
             <Navbar lang={lang} toggleLang={toggleLang} />
             <Hero lang={lang} />
-            {/* <div className="h-16"></div> */}
+            {/*/!* <div className="h-16"></div> *!/*/}
             <Resume lang={lang} />
             <Skills lang={lang} />
             <ContactForm lang={lang} />

@@ -1,3 +1,4 @@
+// src/app/resume.tsx
 "use client";
 
 import { Typography } from "@material-tailwind/react";

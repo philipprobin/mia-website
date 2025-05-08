@@ -1,3 +1,4 @@
+// components/Skills.tsx
 "use client";
 
 import { Typography } from "@material-tailwind/react";
@@ -15,7 +16,6 @@ interface SkillsProps {
 
 const TEXTS = {
     de: {
-        label: "meine leistungen",
         title: "Das biete ich",
         lead:
             "Als erfahrene Dolmetscherin für Deutsch-Polnisch stehe ich Ihnen mit maßgeschneiderten Sprachdienstleistungen zur Seite – professionell, zuverlässig und leidenschaftlich.",
@@ -24,58 +24,66 @@ const TEXTS = {
                 icon: DocumentTextIcon,
                 title: "Übersetzen",
                 children: (
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Verträge</li>
-                        <li>Dokumente</li>
-                        <li>Gutachten</li>
-                        <li>Urkunden</li>
-                        <li>Patente</li>
-                        <li>Schriftverkehr</li>
-                    </ul>
+                    <div>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>Verträge</li>
+                            <li>Dokumente</li>
+                            <li>Gutachten</li>
+                            <li>Urkunden</li>
+                            <li>Patente</li>
+                            <li>Schriftverkehr</li>
+                        </ul>
+                    </div>
                 ),
             },
             {
                 icon: LanguageIcon,
                 title: "Dolmetschen",
                 children: (
-                    <>
+                    <div>
                         <p className="font-medium">Simultan und konsekutiv</p>
-                        <ul className="list-disc list-inside space-y-1">
+                        <ul className="list-disc list-inside space-y-1 mt-2">
                             <li>bei Polizei, Gericht, Behörde</li>
                             <li>während Vertragsverhandlungen</li>
                             <li>auf Geschäftsterminen</li>
                         </ul>
-                    </>
+                    </div>
                 ),
             },
             {
                 icon: MicrophoneIcon,
                 title: "Begleiten",
                 children: (
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>auf Tagungen</li>
-                        <li>zu Geschäftsterminen</li>
-                        <li>zu Vorträgen</li>
-                        <li>immer dann, wenn Erfolg auch von einer guten Verständigung abhängt</li>
-                    </ul>
+                    <div>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>auf Tagungen</li>
+                            <li>zu Geschäftsterminen</li>
+                            <li>zu Vorträgen</li>
+                            <li>
+                                immer dann, wenn Erfolg auch von einer guten Verständigung
+                                abhängt
+                            </li>
+                        </ul>
+                    </div>
                 ),
             },
             {
                 icon: GlobeAltIcon,
                 title: "Interkulturelles Training",
                 children: (
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Wirtschaft</li>
-                        <li>Schule</li>
-                        <li>öffentliche Einrichtungen</li>
-                        <li>überall dort, wo Sprache verbindet</li>
-                    </ul>
+                    <div>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>Wirtschaft</li>
+                            <li>Schule</li>
+                            <li>öffentliche Einrichtungen</li>
+                            <li>überall dort, wo Sprache verbindet</li>
+                        </ul>
+                    </div>
                 ),
             },
         ],
     },
     pl: {
-        label: "moje usługi",
         title: "Co oferuję",
         lead:
             "Jako doświadczona tłumaczka języka niemiecko-polskiego oferuję Państwu usługi językowe szyte na miarę – profesjonalnie, rzetelnie i z pasją.",
@@ -84,52 +92,60 @@ const TEXTS = {
                 icon: DocumentTextIcon,
                 title: "Tłumaczenia",
                 children: (
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Umowy</li>
-                        <li>Dokumenty</li>
-                        <li>Ekspertyzy</li>
-                        <li>Dokumenty urzędowe</li>
-                        <li>Patenty</li>
-                        <li>Korespondencja</li>
-                    </ul>
+                    <div>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>Umowy</li>
+                            <li>Dokumenty</li>
+                            <li>Ekspertyzy</li>
+                            <li>Dokumenty urzędowe</li>
+                            <li>Patenty</li>
+                            <li>Korespondencja</li>
+                        </ul>
+                    </div>
                 ),
             },
             {
                 icon: LanguageIcon,
                 title: "Tłumaczenia ustne",
                 children: (
-                    <>
+                    <div>
                         <p className="font-medium">Symultaniczne i konsekutywne</p>
-                        <ul className="list-disc list-inside space-y-1">
+                        <ul className="list-disc list-inside space-y-1 mt-2">
                             <li>przy policji, sądzie, urzędzie</li>
                             <li>podczas negocjacji umów</li>
                             <li>na spotkaniach biznesowych</li>
                         </ul>
-                    </>
+                    </div>
                 ),
             },
             {
                 icon: MicrophoneIcon,
                 title: "Tłumaczenie wspierające",
                 children: (
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>na konferencjach</li>
-                        <li>na spotkaniach biznesowych</li>
-                        <li>na wykładach</li>
-                        <li>zawsze gdy sukces zależy od dobrej komunikacji</li>
-                    </ul>
+                    <div>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>na konferencjach</li>
+                            <li>na spotkaniach biznesowych</li>
+                            <li>na wykładach</li>
+                            <li>
+                                zawsze gdy sukces zależy od dobrej komunikacji
+                            </li>
+                        </ul>
+                    </div>
                 ),
             },
             {
                 icon: GlobeAltIcon,
                 title: "Szkolenia międzykulturowe",
                 children: (
-                    <ul className="list-disc list-inside space-y-1">
-                        <li>Biznes</li>
-                        <li>Szkoła</li>
-                        <li>instytucji publicznych</li>
-                        <li>wszędzie tam, gdzie łączy język</li>
-                    </ul>
+                    <div>
+                        <ul className="list-disc list-inside space-y-1">
+                            <li>Biznes</li>
+                            <li>Szkoła</li>
+                            <li>instytucji publicznych</li>
+                            <li>wszędzie tam, gdzie łączy język</li>
+                        </ul>
+                    </div>
                 ),
             },
         ],
@@ -137,7 +153,7 @@ const TEXTS = {
 };
 
 export function Skills({ lang }: SkillsProps) {
-    const { label, title, lead, skills } = TEXTS[lang];
+    const { title, lead, skills } = TEXTS[lang];
 
     return (
         <section className="px-8">
