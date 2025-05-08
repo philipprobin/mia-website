@@ -2,40 +2,45 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import { Layout, FixedPlugin } from "@/components";
+import { Layout } from "@/components";
 
 const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-  display: "swap",
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "700", "900"],
+    display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind Portfolio Page",
-  description:
-    "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+    title: "Mia Froitzheim",
+    description:
+        "Dolmetschen und Übersetzen von Polnisch zu Deutsch und umgekehrt",
+    icons: {
+        icon: "/favicon.png",               // Dein Favicon in /public/favicon.png
+        apple: "/apple-touch-icon.png",
+    },
 };
 
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
+                                       children,
+                                   }: {
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <head>
-        <script
-          defer
-          data-site="www.mia-froitzheim.de"
-          src="https://api.nepcha.com/js/nepcha-analytics.js"
-        ></script>
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-      </head>
-      <body className={roboto.className}>
-        <Layout>
-          {children}
-        </Layout>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="de">
+        <head>
+            <link
+                rel="icon"
+                href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>"
+            />
+            <script
+                defer
+                data-site="www.mia-froitzheim.de"
+            />
+            <title>Mia Froitzheim</title>
+        </head>
+        <body className={roboto.className}>
+        <Layout>{children}</Layout>
+        </body>
+        </html>
+    );
 }
