@@ -19,17 +19,23 @@ export async function POST(request: Request) {
 
         // SMTP-Daten in .env.local setzen:
         // SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
+
+        const port = Number(process.env.SMTP_PORT);
+        const secure = port === 465;
+
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: process.env.SMTP_SECURE === "true",
+            port,
+            secure,            // true für 465, false für 587
+            ...(port === 587 && { requireTLS: true }),
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
             },
-            logger: true,   // aktiviert ausführliche Logs in der Konsole
-            debug: true,    // noch detailliertere SMTP-Protokolle
+            logger: true,
+            debug: true,
         });
+
 
         // Verifiziere Verbindung
         await transporter.verify();
@@ -38,7 +44,7 @@ export async function POST(request: Request) {
 
         await transporter.sendMail({
             from: process.env.SMTP_USER,        // Deine echte Gmail-Adresse
-            to: 'philipprobinsowik@gmail.com',  // an wen die Mail geht (z. B. Du selbst)
+            to: 'mia.froitzheim@t-online.de',  // an wen die Mail geht (z. B. Du selbst)
             replyTo: `"${firstName} ${lastName}" <${email}>`,
             subject: 'Kontaktanfrage über Webseite',
             text: message,

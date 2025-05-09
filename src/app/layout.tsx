@@ -12,13 +12,13 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
     title: "Mia Froitzheim",
-    description:
-        "Dolmetschen und Übersetzen von Polnisch zu Deutsch und umgekehrt",
+    description: "Dolmetschen und Übersetzen von Polnisch zu Deutsch und umgekehrt",
     icons: {
-        icon: "/favicon.png",               // Dein Favicon in /public/favicon.png
+        icon: "/favicon.png",
         apple: "/apple-touch-icon.png",
     },
 };
+
 
 export default function RootLayout({
                                        children,
@@ -27,17 +27,6 @@ export default function RootLayout({
 }) {
     return (
         <html lang="de">
-        <head>
-            <link
-                rel="icon"
-                href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>"
-            />
-            <script
-                defer
-                data-site="www.mia-froitzheim.de"
-            />
-            <title>Mia Froitzheim</title>
-        </head>
         <body className={roboto.className}>
         <Layout>{children}</Layout>
         </body>
