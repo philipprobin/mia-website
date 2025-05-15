@@ -5,7 +5,7 @@ import { Typography } from "@material-tailwind/react";
 export default function Impressum() {
     // Pflichtangaben für das Impressum
     const data = {
-        name: "Mia Froitzheim Dolmetscherin",
+        name: "Maria Elizabeth Froitzheim",
         address: {
             street: "Carl-von-Ossietzky-Str. 2",
             zip: "41539",
@@ -13,7 +13,7 @@ export default function Impressum() {
         },
         phone: "+49 2133 478668",
         email: "mia.froitzheim@t-online.de",
-        managingDirector: "Mia Froitzheim",
+        managingDirector: "Maria Elizabeth Froitzheim",
         taxOffice: "Finanzamt Grevenbroich",
         taxNumber: "114/5943/4236",
     };

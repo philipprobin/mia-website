@@ -4,7 +4,7 @@ import { Typography } from "@material-tailwind/react";
 
 export default function Datenschutzerklaerung() {
     const data = {
-        name: "Mia Froitzheim Dolmetscherin",
+        name: "Maria Elizabeth Froitzheim",
         address: {
             street: "Carl-von-Ossietzky-Str. 2",
             zip: "41539",
