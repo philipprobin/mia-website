@@ -19,6 +19,16 @@ export function Footer() {
                                 Impressum
                             </Typography>
                         </li>
+                        <li>
+                            <Typography
+                                as={Link}
+                                href="/datenschutzerklaerung"
+                                variant="small"
+                                className="font-normal text-gray-700 hover:text-gray-900 transition-colors"
+                            >
+                                Datenschutzerklärung
+                            </Typography>
+                        </li>
                     </ul>
                 </div>
             </div>
