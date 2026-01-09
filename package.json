@@ -14,8 +14,9 @@
   "dependencies": {
     "@heroicons/react": "2.0.18",
     "@material-tailwind/react": "2.1.2",
+    "@microsoft/clarity": "^1.0.2",
     "next": "^15.3.2",
-    "nodemailer": "^6.10.1",
+    "nodemailer": "7.0.11",
     "react": "18",
     "react-dom": "18"
   },
