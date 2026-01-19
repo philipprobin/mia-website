@@ -18,13 +18,17 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export default async function RootLayout({
+                                             children,
+                                             params,
+                                         }: {
     children: React.ReactNode;
+    params: Promise<{ lang: string }>;
 }) {
+    const { lang } = await params;
+
     return (
-        <html lang="de">
+        <html lang={lang}>
         <body className={roboto.className}>
         <ClarityInit />
         {children}

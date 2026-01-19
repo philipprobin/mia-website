@@ -1,11 +1,17 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from "next/server";
+import acceptLanguage from "accept-language";
 
-const supportedLangs = ['de', 'pl'];
-const defaultLang = 'de';
+const supportedLangs = ["de", "pl"];
+const defaultLang = "de";
+
+acceptLanguage.languages(supportedLangs);
+
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js).*)"],
+};
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const pathname = request.nextUrl.pathname;
 
   // Check if the pathname already contains a supported language
   const pathnameHasLang = supportedLangs.some(
@@ -13,30 +19,13 @@ export function middleware(request: NextRequest) {
   );
 
   if (pathnameHasLang) {
-    return;
+    return NextResponse.next();
   }
 
   // Redirect from root to the preferred language
-  if (pathname === '/') {
-    const acceptLanguage = request.headers.get('accept-language');
-    let preferredLang = defaultLang;
+  const lang =
+    acceptLanguage.get(request.headers.get("Accept-Language")) || defaultLang;
+  const url = new URL(`/${lang}${pathname}`, request.url);
 
-    if (acceptLanguage) {
-      const langs = acceptLanguage.split(',').map(lang => lang.split(';')[0].trim());
-      for (const lang of langs) {
-        if (supportedLangs.includes(lang)) {
-          preferredLang = lang;
-          break;
-        }
-        const baseLang = lang.split('-')[0];
-        if (supportedLangs.includes(baseLang)) {
-          preferredLang = baseLang;
-          break;
-        }
-      }
-    }
-
-    request.nextUrl.pathname = `/${preferredLang}`;
-    return NextResponse.redirect(request.nextUrl);
-  }
+  return NextResponse.redirect(url);
 }
