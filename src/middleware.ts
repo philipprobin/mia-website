@@ -13,6 +13,13 @@ export const config = {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+
+  // Allow Google Search Console verification files at root
+  if (pathname === "/google2e672a4ba1bb5751.html") {
+    return NextResponse.next();
+  }
+
+
   // Check if the pathname already contains a supported language
   const pathnameHasLang = supportedLangs.some(
     (lang) => pathname.startsWith(`/${lang}/`) || pathname === `/${lang}`
