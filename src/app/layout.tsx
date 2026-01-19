@@ -18,33 +18,31 @@ export const metadata: Metadata = {
     },
 };
 
-export default async function RootLayout({
-                                             children,
-                                             params,
-                                         }: {
-    children: React.ReactNode;
-    params: Promise<{ lang: string }>;
+export default function RootLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { lang: string };
 }) {
-    const { lang } = await params;
-
-    return (
-        <html lang={lang}>
-        <head>
-            <link
-                rel="alternate"
-                hrefLang="de"
-                href="https://www.mia-froitzheim.de/de"
-            />
-            <link
-                rel="alternate"
-                hrefLang="pl"
-                href="https://www.mia-froitzheim.de/pl"
-            />
-        </head>
-        <body className={roboto.className}>
+  return (
+    <html lang={params.lang}>
+      <head>
+        <link
+          rel="alternate"
+          hrefLang="de"
+          href="https://www.mia-froitzheim.de/de"
+        />
+        <link
+          rel="alternate"
+          hrefLang="pl"
+          href="https://www.mia-froitzheim.de/pl"
+        />
+      </head>
+      <body className={roboto.className}>
         <ClarityInit />
         {children}
-        </body>
-        </html>
-    );
+      </body>
+    </html>
+  );
 }
