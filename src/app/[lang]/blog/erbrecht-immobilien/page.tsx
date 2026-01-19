@@ -83,9 +83,6 @@ export default function ErbrechtImmobilien() {
           <Typography variant="h1" className="mb-2 text-3xl md:text-4xl font-bold text-gray-900">
             {t.title}
           </Typography>
-          <Typography variant="lead" className="mb-8 text-xl text-gray-700 font-medium">
-            {t.subtitle}
-          </Typography>
 
           <div className="mb-10 text-gray-700 leading-relaxed text-lg">
             {t.intro}
