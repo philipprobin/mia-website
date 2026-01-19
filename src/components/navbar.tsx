@@ -1,14 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { Navbar as MTNavbar, IconButton, Typography } from "@material-tailwind/react";
 
 interface NavbarProps {
     lang: "de" | "pl";
+    toggleLang: () => void;
 }
 
-export function Navbar({ lang }: NavbarProps) {
-    const nextLang = lang === "de" ? "pl" : "de";
+export function Navbar({ lang, toggleLang }: NavbarProps) {
     return (
         <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between py-2">
@@ -18,15 +17,14 @@ export function Navbar({ lang }: NavbarProps) {
                 </Typography>
 
                 {/* Language Toggle */}
-                <Link href={`/${nextLang}`}>
-                    <IconButton
-                        variant="text"
-                        color="gray"
-                        className="!text-xl"
-                    >
-                        {lang === "de" ? "🇩🇪" : "🇵🇱"}
-                    </IconButton>
-                </Link>
+                <IconButton
+                    variant="text"
+                    color="gray"
+                    onClick={toggleLang}
+                    className="!text-xl"
+                >
+                    {lang === "de" ? "🇩🇪" : "🇵🇱"}
+                </IconButton>
             </div>
         </MTNavbar>
     );

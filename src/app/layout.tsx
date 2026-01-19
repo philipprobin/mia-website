@@ -19,30 +19,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
+                                       children,
+                                   }: {
+    children: React.ReactNode;
 }) {
-  return (
-    <html lang={params.lang}>
-      <head>
-        <link
-          rel="alternate"
-          hrefLang="de"
-          href="https://www.mia-froitzheim.de/de"
-        />
-        <link
-          rel="alternate"
-          hrefLang="pl"
-          href="https://www.mia-froitzheim.de/pl"
-        />
-      </head>
-      <body className={roboto.className}>
+    return (
+        <html lang="de">
+        <body className={roboto.className}>
         <ClarityInit />
         {children}
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }
