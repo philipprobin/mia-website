@@ -82,7 +82,8 @@ export default function Personenstandsurkunden() {
           </Link>
 
           {/* Header */}
-          <Typography variant="h1" className="mb-2 text-3xl md:text-4xl font-bold text-gray-900">
+          <Typography
+              as="div" variant="h1" className="mb-2 text-3xl md:text-4xl font-bold text-gray-900">
             {t.title}
           </Typography>
 
