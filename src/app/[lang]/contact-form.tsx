@@ -102,7 +102,7 @@ export function ContactForm({lang}: ContactFormProps) {
     };
 
     return (
-        <section className="px-8 py-16">
+        <section id="contact-form" className="px-8 py-16">
             <div className="container mx-auto mb-20 text-center">
                 <Typography variant="h1" color="blue-gray" className="mb-4">
                     {heading}
