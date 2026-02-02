@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Typography } from "@material-tailwind/react";
+import Link from "next/link";
+import { Typography, Button } from "@material-tailwind/react";
+import { MapPinIcon } from "@heroicons/react/24/solid";
 import MiaImage from "../../../public/image/mia.jpeg";
 
 interface HeroProps {
@@ -10,19 +12,21 @@ interface HeroProps {
 
 const TEXTS = {
     de: {
-        title: "Suchen Sie eine Dolmetscherin\nfür Deutsch-Polnisch?",
+        title: "Beglaubigte Dolmetscherin Deutsch–Polnisch\nin der Nähe von Köln",
         lead:
-            "Ich bin Mia Froitzheim, erfahrene Dolmetscherin für Deutsch-Polnisch mit Sitz\nin Dormagen. Ich ermögliche klare Kommunikation zwischen deutschen und\npolnischen Partnern, damit Ihre Botschaft zuverlässig ankommt.",
+            "Ich bin Mia Froitzheim, vereidigte Dolmetscherin und Übersetzerin für Deutsch–Polnisch nahe Köln (Dormagen).\nIch unterstütze Sie bei Behörden, Gerichten und Terminen sowie mit beglaubigten Übersetzungen von Urkunden.",
+        directions: "Anfahrt (Köln · Düsseldorf · Neuss)",
     },
     pl: {
-        title: "Szukasz tłumaczki\nniemiecko-polskiej?",
+        title: "Tłumacz przysięgły polsko–niemiecki\nw pobliżu Kolonii",
         lead:
-            "Nazywam się Mia Froitzheim, jestem doświadczoną tłumaczką języka niemiecko-polskiego z siedzibą\nw Dormagen. Zapewniam przejrzystą komunikację między partnerami\ni niemieckimi, i polskimi, aby Twoje przesłanie dotarło pewnie.",
+            "Nazywam się Mia Froitzheim, jestem tłumaczką przysięgłą języka polsko-niemieckiego w pobliżu Kolonii (Dormagen).\nWykonuję tłumaczenia uwierzytelnione oraz zapewniam tłumaczenia ustne w urzędach i sądach.",
+        directions: "Dojazd (Kolonia · Düsseldorf · Neuss)",
     },
 };
 
 export default function Hero({ lang }: HeroProps) {
-    const { title, lead } = TEXTS[lang];
+    const { title, lead, directions } = TEXTS[lang];
 
     return (
         <header className="bg-white p-8">
@@ -35,21 +39,35 @@ export default function Hero({ lang }: HeroProps) {
                     >
                         {title}
                     </Typography>
+
                     <Typography
                         variant="lead"
-                        className="mb-4 !text-gray-500 md:pr-16 xl:pr-28 whitespace-pre-line"
+                        className="mb-6 !text-gray-500 md:pr-16 xl:pr-28 whitespace-pre-line"
                     >
                         {lead}
                     </Typography>
+
+                    {/* Minimalistic Button */}
+                    <Link href={`/${lang}/anfahrt`} className="inline-block">
+                        <Button
+                            variant="outlined"
+                            color="gray"
+                            size="md"
+                            className="flex items-center gap-2 rounded-full px-5"
+                        >
+                            <MapPinIcon className="h-5 w-5" />
+                            {directions}
+                        </Button>
+                    </Link>
                 </div>
+
                 <Image
                     width={1024}
                     height={1024}
-                    alt="team work"
+                    alt="Mia Froitzheim"
                     src={MiaImage}
                     className="h-[36rem] w-full rounded-xl object-cover object-top"
                 />
-
             </div>
         </header>
     );

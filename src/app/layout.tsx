@@ -15,14 +15,14 @@ const metaByLang = {
     de: {
         title: "Dolmetscherin & Übersetzerin Deutsch–Polnisch | Mia Froitzheim",
         description:
-            "Beeidigte Dolmetscherin und Übersetzerin für Polnisch–Deutsch. Beglaubigte Übersetzungen von Urkunden und Dokumenten (Geburt, Heirat, Scheidung, Sterbeurkunde) sowie Dolmetschen bei Behörden, Gericht und Terminen.",
+            "Beeidigte Dolmetscherin und Übersetzerin für Polnisch–Deutsch nähe Köln. Beglaubigte Übersetzungen von Urkunden und Dokumenten (Geburt, Heirat, Scheidung, Sterbeurkunde) sowie Dolmetschen bei Behörden, Gericht und Terminen.",
         ogImage: "/og-de.png",
         locale: "de_DE",
     },
     pl: {
         title: "Tłumacz przysięgły polski–niemiecki | Mia Froitzheim",
         description:
-            "Tłumaczenia przysięgłe dokumentów z polskiego na niemiecki i z niemieckiego na polski (akty stanu cywilnego, wyroki rozwodowe, dokumenty spadkowe). Dolmetschen bei urzędach i terminach w Niemczech.",
+            "Tłumaczenia przysięgłe dokumentów z polskiego na niemiecki i z niemieckiego na polski w pobliżu Kolonii (akty stanu cywilnego, wyroki rozwodowe, dokumenty spadkowe). Dolmetschen bei urzędach i terminach w Niemczech.",
         ogImage: "/og-pl.png",
         locale: "pl_PL",
     },
@@ -79,7 +79,7 @@ export async function generateMetadata({
             locale: m.locale,
             images: [
                 {
-                    url: m.ogImage,
+                    url: `${siteUrl}${m.ogImage}`,
                     width: 1200,
                     height: 630,
                     alt: m.title,

@@ -23,9 +23,11 @@ export function Navbar({ lang }: NavbarProps) {
         <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
             <div className="container mx-auto flex items-center justify-between py-2">
                 {/* Brand */}
-                <Typography color="blue-gray" className="text-lg font-bold">
-                    Mia Froitzheim
-                </Typography>
+                <Link href="/">
+                    <Typography color="blue-gray" className="text-lg font-bold cursor-pointer">
+                        Mia Froitzheim
+                    </Typography>
+                </Link>
 
                 {/* Language Toggle */}
                 <Link href={href}>

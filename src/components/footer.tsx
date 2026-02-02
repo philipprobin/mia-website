@@ -29,6 +29,16 @@ export function Footer() {
                                 Datenschutzerklärung
                             </Typography>
                         </li>
+                        <li>
+                            <Typography
+                                as={Link}
+                                href="/anfahrt"
+                                variant="small"
+                                className="font-normal text-gray-700 hover:text-gray-900 transition-colors"
+                            >
+                                Anfahrt
+                            </Typography>
+                        </li>
                     </ul>
                 </div>
             </div>
