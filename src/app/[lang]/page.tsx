@@ -20,8 +20,8 @@ export default function Portfolio() {
         <>
             <Navbar lang={lang as "de" | "pl"} />
             <Hero lang={lang as "de" | "pl"} />
-            <Resume lang={lang as "de" | "pl"} />
             <Skills lang={lang as "de" | "pl"} />
+            <Resume lang={lang as "de" | "pl"} />
             <ContactForm lang={lang as "de" | "pl"} />
             <Footer />
         </>
